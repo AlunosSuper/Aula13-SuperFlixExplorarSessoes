@@ -28,19 +28,22 @@ const Conteudo = styled.img`
   }
 `
 export default function Sessao(props) {
-  return <Modelo>
-    <ModeloTitulo> { props.genero } </ModeloTitulo>
- 
-    <ModeloInterno>
-      {
-        props.conteudos.map(function(conteudo, indice) {
-            if (conteudo.genero === props.genero)
-                return <a href={ "/video/" + conteudo["_id"] } key={ indice }>
-                    <Conteudo src={ conteudo.capa } alt="capa" />
-                </a>
-})
-
-      }
-    </ModeloInterno>
-  </Modelo>
+  return (
+    <Modelo>
+      <ModeloTitulo> { props.genero } </ModeloTitulo>
+  
+      <ModeloInterno>
+        {props.conteudos.map(function(conteudo) {
+          if (conteudo.genero === props.genero) {
+            return (
+              <a key={conteudo.id} href={`/video/${conteudo.id}`}>
+                <Conteudo src={conteudo.capa} alt="capa" />
+              </a>
+            )
+          }
+          return null
+        })}
+      </ModeloInterno>
+    </Modelo>
+  )
 }
