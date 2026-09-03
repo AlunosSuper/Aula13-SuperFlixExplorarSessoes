@@ -4,7 +4,7 @@ const Modelo = styled.div`
   background-image: url(${ props => props.fundo });
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 50vh;
 `
 export default function Destaque(props) {
   return <Modelo fundo={ props.fundo }>
